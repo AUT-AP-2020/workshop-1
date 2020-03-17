@@ -20,7 +20,7 @@ public class Student {
      * Main constructor with 4 parameters
      *
      * @param firstName   The student's first name
-     * @param lastNameThe student's last name
+     * @param lastName student's last name
      * @param id          The student's ID
      * @param grade       The student's grade
      */
@@ -35,13 +35,13 @@ public class Student {
      * Additional constructor with 3 parameters
      *
      * @param firstName   The student's first name
-     * @param lastNameThe student's last name
+     * @param lastName student's last name
      * @param id          The student's ID
      */
     public Student(String firstName, String lastName, String id) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.id = id;
+        this.setId(id);
     }
 
     /**
@@ -95,7 +95,10 @@ public class Student {
      * @param id The student's ID
      */
     public void setId(String id) {
-        this.id = id;
+        if(id.length()==7)
+            this.id = id;
+        else
+            System.out.println("invalid ID");
     }
 
     /**
@@ -113,7 +116,10 @@ public class Student {
      * @param grade The student's grade
      */
     public void setGrade(int grade) {
-        this.grade = grade;
+        if(grade>=0 || grade<=20)
+            this.grade = grade;
+        else
+            System.out.println("Invalid grade");
     }
 
     public void print(){
