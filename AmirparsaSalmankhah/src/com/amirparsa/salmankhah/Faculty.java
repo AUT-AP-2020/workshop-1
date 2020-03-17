@@ -1,5 +1,10 @@
 package com.amirparsa.salmankhah;
 
+/**
+ * Represents a faculty
+ * @author Amirparsa Salmankhah
+ * @version 1.0
+ */
 public class Faculty {
     //Faculty's lab
     private Lab[] labs;
@@ -15,7 +20,7 @@ public class Faculty {
     public Faculty(int capacity){
         currentNumOfLabs = 0;
         labs = new Lab[capacity];
-        this.capacity = capacity;
+        this.setCapacity(capacity);
     }
 
     /**
@@ -69,7 +74,10 @@ public class Faculty {
      * @param capacity Max number of labs
      */
     public void setCapacity(int capacity) {
-        this.capacity = capacity;
+        if(capacity>0)
+            this.capacity = capacity;
+        else
+            System.out.println("Invalid capacity");
     }
 
     /**

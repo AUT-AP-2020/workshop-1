@@ -27,7 +27,7 @@ public class Lab {
     public Lab(int capacity, String day) {
         currentSize = 0;
         avg = 0;
-        this.capacity = capacity;
+        this.setCapacity(capacity);
         this.day = day;
         students = new Student[capacity];
     }
@@ -114,7 +114,10 @@ public class Lab {
      * @param capacity Capacity of the lab
      */
     public void setCapacity(int capacity) {
-        this.capacity = capacity;
+        if(capacity>=0)
+            this.capacity = capacity;
+        else
+            System.out.println("Invalid capacity");
     }
 
     /**

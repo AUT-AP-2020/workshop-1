@@ -1,5 +1,10 @@
 package com.amirparsa.salmankhah;
 
+/**
+ * a class for testing out system
+ * @author Amirparsa Salmankhah
+ * @version 1.0
+ */
 public class Run {
     public static void main(String[] args) {
         Faculty ce = new Faculty(3);
