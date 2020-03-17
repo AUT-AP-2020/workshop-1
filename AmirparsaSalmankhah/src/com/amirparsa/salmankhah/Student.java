@@ -43,4 +43,80 @@ public class Student {
         this.lastName = lastName;
         this.id = id;
     }
+
+    /**
+     * first name getter
+     *
+     * @return a String : The student's first name
+     */
+    public String getFirstName() {
+        return firstName;
+    }
+
+    /**
+     * first name setter
+     *
+     * @param firstName The student's first name
+     */
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    /**
+     * Last name getter
+     *
+     * @return a String : The student's Last name
+     */
+    public String getLastName() {
+        return lastName;
+    }
+
+    /**
+     * last name setter
+     *
+     * @param lastName The student's last name
+     */
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    /**
+     * ID getter
+     *
+     * @return a String : The student's ID
+     */
+    public String getId() {
+        return id;
+    }
+
+    /**
+     * ID setter
+     *
+     * @param id The student's ID
+     */
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    /**
+     * Grade getter
+     *
+     * @return an integer : The student's grade
+     */
+    public int getGrade() {
+        return grade;
+    }
+
+    /**
+     * grade setter
+     *
+     * @param grade The student's grade
+     */
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public void print(){
+        System.out.println(lastName + ", Student ID: " + id + ", Student grade: " + grade);
+    }
 }
