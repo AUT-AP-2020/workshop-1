@@ -2,4 +2,4 @@
 
 ### Program Description
 
-No description avalible at the moment.
+No description available at the moment.
