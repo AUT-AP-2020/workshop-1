@@ -1,4 +1,5 @@
 /**
+ * <h1>Sudent Class</h1>
  * This class represents a student in administration system
  * <p>This class holds details relevent to our context</p>
  * @author Keivan Ipchi Hagh
@@ -27,7 +28,7 @@ class Student {
     private double grade;
 
     /**
-     * Object Constructor
+     * Student Constructor
      * <p>Initialize object fields<p>
      * @param firstName Student's first name
      * @param lastName Student's last name
