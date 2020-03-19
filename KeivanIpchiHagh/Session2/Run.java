@@ -1,4 +1,4 @@
-class Main {
+class Run {
 
     // Driver function
     public static void main(String[] args) {
