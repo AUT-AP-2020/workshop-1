@@ -10,10 +10,12 @@ public class Main {
         pop.addFile(music1);
         pop.addFile(music2);
         pop.addFile(music3);
+        pop.removeFile(1);
         pop.listAllFiles();
         pop.addFavourite(0);
         pop.listFavourites();
         pop.removeFavourite(0);
         pop.listFavourites();
+        pop.searchForMusic("Chaartaar");
     }
 }

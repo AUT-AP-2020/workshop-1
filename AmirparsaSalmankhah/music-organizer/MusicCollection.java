@@ -58,6 +58,7 @@ public class MusicCollection {
      * Show a list of all the files in the collection.
      */
     public void listAllFiles() {
+        System.out.println("List of musics:");
         int index = 0;
         for (Music music : files) {
             System.out.printf("%d) ", index);
@@ -130,10 +131,25 @@ public class MusicCollection {
      * Show list of favourites
      */
     public void listFavourites(){
+        System.out.println("List of favourite musics:");
         int index=0;
         for(Music music : favourites){
             System.out.printf("%d) ",index);
             music.show();
+        }
+    }
+
+    public void searchForMusic(String attribute){
+        System.out.println("List of founded musics:");
+        int index=0;
+        for(Music music : files){
+            String name = music.getName();
+            String singer = music.getSinger();
+            if(name.contains(attribute) || singer.contains(attribute)){
+                System.out.printf("%d) ", index);
+                music.show();
+                index++;
+            }
         }
     }
 }
