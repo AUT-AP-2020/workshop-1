@@ -17,5 +17,7 @@ public class Main {
         pop.removeFavourite(0);
         pop.listFavourites();
         pop.searchForMusic("Chaartaar");
+        pop.startPlaying(0);
+        pop.stopPlaying();
     }
 }

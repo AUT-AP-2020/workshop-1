@@ -139,6 +139,10 @@ public class MusicCollection {
         }
     }
 
+    /**
+     * Search for a music by name and singer and list all of founded music.
+     * @param attribute Name or singer of the music
+     */
     public void searchForMusic(String attribute){
         System.out.println("List of founded musics:");
         int index=0;
