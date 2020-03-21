@@ -7,7 +7,7 @@
  * 
  * The clock display receives "ticks" (via the timeTick method) every minute
  * and reacts by incrementing the display. This is done in the usual clock
- * fashion: the hour increments when the minutes roll over to zero.
+ * fashion: the hour increments when the minutes roll over to zero and the minute increments when the second roll orver to zero.
  * 
  * @author Michael Kolling and David J. Barnes
  * @version 2008.03.30
@@ -16,6 +16,7 @@ public class ClockDisplay
 {
     private NumberDisplay hours;
     private NumberDisplay minutes;
+    private NumberDisplay seconds;
     private String displayString;    // simulates the actual display
     
     /**
@@ -26,6 +27,7 @@ public class ClockDisplay
     {
         hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
+        seconds = new NumberDisplay(60);
         updateDisplay();
     }
 
@@ -34,11 +36,12 @@ public class ClockDisplay
      * creates a new clock set at the time specified by the 
      * parameters.
      */
-    public ClockDisplay(int hour, int minute)
+    public ClockDisplay(int hour, int minute, int second)
     {
         hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
-        setTime(hour, minute);
+        seconds = new NumberDisplay(60);
+        setTime(hour, minute, second);
     }
 
     /**
@@ -47,7 +50,10 @@ public class ClockDisplay
      */
     public void timeTick()
     {
-        minutes.increment();
+        seconds.increment();
+        if(seconds.getValue() == 0) {  // it just rolled over!
+            minutes.increment();
+        }
         if(minutes.getValue() == 0) {  // it just rolled over!
             hours.increment();
         }
@@ -58,10 +64,11 @@ public class ClockDisplay
      * Set the time of the display to the specified hour and
      * minute.
      */
-    public void setTime(int hour, int minute)
+    public void setTime(int hour, int minute, int second)
     {
         hours.setValue(hour);
         minutes.setValue(minute);
+        seconds.setValue(second);
         updateDisplay();
     }
 
@@ -79,6 +86,7 @@ public class ClockDisplay
     private void updateDisplay()
     {
         displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+                        minutes.getDisplayValue() + ":" + 
+                        seconds.getDisplayValue();
     }
 }
