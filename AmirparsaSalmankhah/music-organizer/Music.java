@@ -89,4 +89,11 @@ public class Music {
     public void setProductYear(int productYear) {
         this.productYear = productYear;
     }
+
+    /**
+     * Show Details
+     */
+    public void show(){
+        System.out.println("Name: " + name + "\tSinger: " + singer + "\tProduction Year: " + productYear);
+    }
 }
