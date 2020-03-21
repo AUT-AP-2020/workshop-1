@@ -20,9 +20,7 @@ public class Music {
      * Constructor with no parameters
      */
     public Music() {
-        name = new String("");
-        singer = new String("");
-        productYear = 0;
+        this("","",0);
     }
 
     /**

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class MusicCollection
 {
     // An ArrayList for storing the file names of music files.
-    private ArrayList<String> files;
+    private ArrayList<Music> files;
     // A player for the music files.
     private MusicPlayer player;
         
@@ -19,17 +19,17 @@ public class MusicCollection
      */
     public MusicCollection()
     {
-        files = new ArrayList<String>();
+        files = new ArrayList<Music>();
         player = new MusicPlayer();
     }
     
     /**
      * Add a file to the collection.
-     * @param filename The file to be added.
+     * @param file The file to be added.
      */
-    public void addFile(String filename)
+    public void addFile(Music file)
     {
-        files.add(filename);
+        files.add(file);
     }
     
     /**
@@ -48,7 +48,7 @@ public class MusicCollection
     public void listFile(int index)
     {
         if(validIndex(index))
-           System.out.println(files.get(index));
+           System.out.println("Name: " + files.get(index).getName() + "Singer: " + files.get(index).getSinger() + "Production Year: " + files.get(index).getProductYear());
     }
     
     /**
@@ -57,9 +57,9 @@ public class MusicCollection
     public void listAllFiles()
     {
         int index=0;
-        for(String str : files){
+        for(Music music : files){
             System.out.printf("%d) ", index);
-            System.out.println(str);
+            System.out.println("Name: " + music.getName() + "Singer: " + music.getSinger() + "Production Year: " + music.getProductYear());
             index++;
         }
     }
@@ -82,7 +82,7 @@ public class MusicCollection
     public void startPlaying(int index)
     {
         if(validIndex(index))
-            player.startPlaying(files.get(index));
+            player.startPlaying(files.get(index).getName());
     }
 
     /**
