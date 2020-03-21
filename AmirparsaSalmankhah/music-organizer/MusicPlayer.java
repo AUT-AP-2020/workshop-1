@@ -1,10 +1,10 @@
-
+package com.amirparsa.salmankhah;
 
 /**
  * Provide basic playing of MP3 files via the javazoom library.
  * See http://www.javazoom.net/
  * 
- * @author David J. Barnes and Michael Kölling.
+ * @author David J. Barnes and Michael Kolling.
  * @version 2011.07.31
  */
 public class MusicPlayer

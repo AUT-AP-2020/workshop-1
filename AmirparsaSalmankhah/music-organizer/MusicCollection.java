@@ -1,9 +1,10 @@
+package com.amirparsa.salmankhah;
 import java.util.ArrayList;
 
 /**
  * A class to hold details of audio files.
  * 
- * @author David J. Barnes and Michael Kölling
+ * @author David J. Barnes and Michael Kolling
  * @version 2011.07.31
  */
 public class MusicCollection
@@ -18,7 +19,8 @@ public class MusicCollection
      */
     public MusicCollection()
     {
-        
+        files = new ArrayList<String>();
+        player = new MusicPlayer();
     }
     
     /**
@@ -27,7 +29,7 @@ public class MusicCollection
      */
     public void addFile(String filename)
     {
-        
+        files.add(filename);
     }
     
     /**
@@ -36,7 +38,7 @@ public class MusicCollection
      */
     public int getNumberOfFiles()
     {
-        
+        return files.size();
     }
     
     /**
@@ -45,7 +47,8 @@ public class MusicCollection
      */
     public void listFile(int index)
     {
-        
+        if(validIndex(index))
+           System.out.println(files.get(index));
     }
     
     /**
@@ -53,7 +56,12 @@ public class MusicCollection
      */
     public void listAllFiles()
     {
-        
+        int index=0;
+        for(String str : files){
+            System.out.printf("%d) ", index);
+            System.out.println(str);
+            index++;
+        }
     }
     
     /**
@@ -62,7 +70,8 @@ public class MusicCollection
      */
     public void removeFile(int index)
     {
-        
+        if(validIndex(index))
+            files.remove(index);
     }
 
     /**
@@ -72,7 +81,8 @@ public class MusicCollection
      */
     public void startPlaying(int index)
     {
-        
+        if(validIndex(index))
+            player.startPlaying(files.get(index));
     }
 
     /**
@@ -80,7 +90,7 @@ public class MusicCollection
      */
     public void stopPlaying()
     {
-        
+        player.stop();
     }
 
 
@@ -92,8 +102,9 @@ public class MusicCollection
      */
     private boolean validIndex(int index)
     {
-        // The return value.
-        // Set according to whether the index is valid or not.
-       
+        if(index>=0 && index<files.size())
+            return true;
+        System.out.println("ERROR: List index out of range");
+        return false;
     }
 }
