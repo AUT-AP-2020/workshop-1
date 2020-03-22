@@ -25,8 +25,8 @@ class MusicCollection {
      * MusicCollection Constructor
      * @param collectionName Collection name
      */
-    public MusicCollection(String collectiobName) {
-        this.collectionName = collectiobName;
+    public MusicCollection(String collectionName) {
+        this.collectionName = collectionName;
         this.player = new MusicPlayer();
         this.musics = new ArrayList<>();
     }
@@ -59,11 +59,12 @@ class MusicCollection {
 
     /**
      * says as it is
+     * @param music Music
      */
     public void removeMusic(Music music) {
         Iterator<Music> iterator = musics.iterator();
         while (iterator.hasNext()) {
-            current = iterator.next();
+            Music current = iterator.next();
             if (music.equals(current))
                 iterator.remove();
         }
