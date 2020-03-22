@@ -30,16 +30,16 @@ class Lab {
     private int currentSize;
 
     /**
-     * Lab Contructor
-     * <p>Inidialize object fields</p>
-     * @param capacity
-     * @param day
+     * Lab Constructor
+     * <p>Initialize object fields</p>
+     * @param capacity Lab capacity
+     * @param day Lab registration day
      */
     public Lab(int capacity, String day) {
         this.capacity = capacity;
         this.day = day;
         this.currentSize = 0;   // Initial value
-        students = new Student[capacity];   // Initialzie student array
+        students = new Student[capacity];   // Initialize student array
     }
 
     /**

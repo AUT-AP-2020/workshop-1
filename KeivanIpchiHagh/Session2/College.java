@@ -33,7 +33,9 @@ class College {
 
     /**
      * College Constructor
-     * @param supervisor Supervisor
+     * @param collegeName College name
+     * @param supervisor College supervisor
+     * @param capacity College capacity
      */
     public College(String collegeName, String supervisor, int capacity) {
         this.collegeName = collegeName;
