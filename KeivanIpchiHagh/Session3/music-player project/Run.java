@@ -40,5 +40,8 @@ class Run {
         // Print Collection - TEST
         favorite.print();
         System.out.println("\n");
+
+        pop.startPlaying(0);
+        pop.stopPlaying();
     }
 }

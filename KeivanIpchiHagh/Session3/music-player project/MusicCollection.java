@@ -19,12 +19,15 @@ class MusicCollection {
      */
     private String collectionName;
 
+    MusicPlayer player;
+
     /**
      * MusicCollection Constructor
      * @param collectionName Collection name
      */
     public MusicCollection(String collectiobName) {
         this.collectionName = collectiobName;
+        this.player = new MusicPlayer();
         this.musics = new ArrayList<>();
     }
 
@@ -34,6 +37,14 @@ class MusicCollection {
      */
     public void addMusic(Music music) {
         musics.add(music);
+    }
+
+    /**
+     * Get number of musics
+     * @return Number of musics
+     */
+    public int getNumberOfMusics() {
+        return musics.size();
     }
 
     /**
@@ -84,5 +95,13 @@ class MusicCollection {
         if (!found) {
             System.out.println("Sry, music you are trying to find, does not exist here!");
         }
+    }
+
+    public void startPlaying(int i) {
+        player.startPlaying(musics.get(i).getAddress());
+    }
+
+    public void stopPlaying() {
+        player.stop();
     }
 }
