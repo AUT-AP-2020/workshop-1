@@ -96,6 +96,7 @@ public class MusicCollection
      * Determine whether the given index is valid for the collection.
      * Print an error message if it is not.
      * @param index The index to be checked.
+     * @param list The list to be checked
      * @return true if the index is valid, false otherwise.
      */
     private boolean validIndex(ArrayList list,int index)
@@ -107,19 +108,38 @@ public class MusicCollection
         }
         return false;
     }
+
+    /**
+     * Add a file to the favourites.
+     * @param music The file to be added
+     */
     public void addFavourite(Music music){
         favourites.add(music);
     }
+
+    /**
+     * Remove a file from favourites
+     * @param index The index of the file to be removed.
+     */
     public void removeFavourite(int index){
         if(validIndex(favourites,index)){
             favourites.remove(index);
         }
     }
+
+    /**
+     * Show favourite list files
+     */
     public void listAllFavourites(){
         for(Music i:favourites){
             i.print();
         }
     }
+
+    /**
+     * Search a String in address file or singer name
+     * @param search The String to be checked
+     */
     public void searchMusic(String search){
         for(Music i:files){
             if(i.getAddress().equals(search) || i.getSinger().equals(search)){

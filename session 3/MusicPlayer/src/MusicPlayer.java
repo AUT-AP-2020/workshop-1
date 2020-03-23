@@ -30,7 +30,10 @@ public class MusicPlayer
         System.out.println(music.getAddress() + " is playing...");
 		isPlaying = true;
     }
-    
+
+    /**
+     * Stop playing the file is playing
+     */
     public void stop()
     {
         System.out.println("player is stopped!");
