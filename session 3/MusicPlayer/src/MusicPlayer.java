@@ -23,11 +23,11 @@ public class MusicPlayer
     /**
      * Start playing the given audio file.
      * The method returns once the playing has been started.
-     * @param filename The file to be played.
+     * @param music The file to be played.
      */
-    public void startPlaying(String filename)
+    public void startPlaying(Music music)
     {
-        System.out.println(filename + " is playing...");
+        System.out.println(music.getAddress() + " is playing...");
 		isPlaying = true;
     }
     
@@ -36,7 +36,4 @@ public class MusicPlayer
         System.out.println("player is stopped!");
 		isPlaying = false;
     }
-    
-    
-
 }

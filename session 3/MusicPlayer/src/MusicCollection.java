@@ -1,33 +1,35 @@
 import java.util.ArrayList;
-
 /**
  * A class to hold details of audio files.
  * 
- * @author David J. Barnes and Michael Kölling
+ * @author David J. Barnes and Michael Kï¿½lling
  * @version 2011.07.31
  */
 public class MusicCollection
 {
-    // An ArrayList for storing the file names of music files.
-    private ArrayList<String> files;
+    // An ArrayList for storing the music files.
+    private ArrayList<Music> files;
     // A player for the music files.
     private MusicPlayer player;
-        
+    // An ArrayList for storing the favourite music files.
+    private ArrayList<Music>favourites;
     /**
      * Create a MusicCollection
      */
     public MusicCollection()
     {
-        
+        files=new ArrayList<Music>();
+        favourites=new ArrayList<Music>();
+        player=new MusicPlayer();
     }
     
     /**
      * Add a file to the collection.
-     * @param filename The file to be added.
+     * @param music The file to be added.
      */
-    public void addFile(String filename)
+    public void addFile(Music music)
     {
-        
+        files.add(music);
     }
     
     /**
@@ -36,7 +38,7 @@ public class MusicCollection
      */
     public int getNumberOfFiles()
     {
-        
+        return files.size();
     }
     
     /**
@@ -45,7 +47,9 @@ public class MusicCollection
      */
     public void listFile(int index)
     {
-        
+        if(validIndex(files,index)){
+            files.get(index).print();
+        }
     }
     
     /**
@@ -53,7 +57,9 @@ public class MusicCollection
      */
     public void listAllFiles()
     {
-        
+        for(Music i:files){
+            i.print();
+        }
     }
     
     /**
@@ -62,7 +68,8 @@ public class MusicCollection
      */
     public void removeFile(int index)
     {
-        
+        if(validIndex(files,index))
+            files.remove(index);
     }
 
     /**
@@ -72,7 +79,8 @@ public class MusicCollection
      */
     public void startPlaying(int index)
     {
-        
+        if(validIndex(files,index))
+            player.startPlaying(files.get(index));
     }
 
     /**
@@ -80,7 +88,7 @@ public class MusicCollection
      */
     public void stopPlaying()
     {
-        
+        player.stop();
     }
 
 
@@ -90,10 +98,33 @@ public class MusicCollection
      * @param index The index to be checked.
      * @return true if the index is valid, false otherwise.
      */
-    private boolean validIndex(int index)
+    private boolean validIndex(ArrayList list,int index)
     {
         // The return value.
         // Set according to whether the index is valid or not.
-       
+        if(list.size()>=index && index>=0){
+            return true;
+        }
+        return false;
+    }
+    public void addFavourite(Music music){
+        favourites.add(music);
+    }
+    public void removeFavourite(int index){
+        if(validIndex(favourites,index)){
+            favourites.remove(index);
+        }
+    }
+    public void listAllFavourites(){
+        for(Music i:favourites){
+            i.print();
+        }
+    }
+    public void searchMusic(String search){
+        for(Music i:files){
+            if(i.getAddress().equals(search) || i.getSinger().equals(search)){
+                i.print();
+            }
+        }
     }
 }
