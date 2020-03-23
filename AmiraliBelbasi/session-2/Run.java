@@ -1,5 +1,3 @@
-package app;
-
 /**
  * its a testing class containing main method to see if Lab & Student classes
  * work properly

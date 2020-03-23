@@ -1,5 +1,3 @@
-package app;
-
 /**
  * simulates a lab of students
  * 
@@ -7,7 +5,7 @@ package app;
  */
 public class Lab {
     private Student[] students;
-    private int avg;
+    private double avg;
     private String day;
     private int capacity;
     private int currentSize;
@@ -76,7 +74,7 @@ public class Lab {
      * 
      * @return average of students in a lab
      */
-    public int getAvg() {
+    public double getAvg() {
         return avg;
     }
 
