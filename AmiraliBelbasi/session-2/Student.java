@@ -4,7 +4,7 @@
  * @author Ehsan
  * @version 0.0
  */
-public class Student
+class Student
 {
     // the student’s first name
     private String firstName;
