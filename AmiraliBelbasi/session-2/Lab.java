@@ -1,16 +1,16 @@
+package app;
+
 /**
  * simulates a lab of students
  * 
  * @author amirali belbasi
  */
-public class Lab
-{
+public class Lab {
     private Student[] students;
     private int avg;
     private String day;
     private int capacity;
     private int currentSize;
-    private int gradeAverage;
 
     /**
      * constructs a lab
@@ -18,11 +18,12 @@ public class Lab
      * @param cap capacity of the lab
      * @param d   the day lab is being hold
      */
-    public Lab(int cap, String d) {
+    public Lab(final int cap, final String d) {
         // initialing size of students array
+        capacity = cap;
         students = new Student[capacity];
         day = d;
-        capacity = cap;
+        currentSize = students.length - 1;
     }
 
     /**
@@ -30,7 +31,7 @@ public class Lab
      * 
      * @param std a student object
      */
-    public void enrollStudent(Student std) {
+    public void enrollStudent(final Student std) {
         if (currentSize < capacity) {
             students[currentSize] = std;
             currentSize++;
@@ -44,10 +45,12 @@ public class Lab
      */
     public void print() {
         for (Student i : students) {
+            if (i == null)
+                continue;
             i.print();
         }
         calculateAvg();
-        System.out.println(gradeAverage);
+        System.out.println("average of lab: " + avg);
     }
 
     /**
@@ -64,7 +67,7 @@ public class Lab
      * 
      * @param students
      */
-    public void setStudents(Student[] students) {
+    public void setStudents(final Student[] students) {
         this.students = students;
     }
 
@@ -74,17 +77,18 @@ public class Lab
      * @return average of students in a lab
      */
     public int getAvg() {
-        return gradeAverage;
+        return avg;
     }
 
     /**
-     * calculates average grade of a lab & save it to gradeAverage field
+     * calculates average grade of a lab & save it to avg field
      */
     public void calculateAvg() {
-        for (Student i : students) {
-            gradeAverage += i.grade;
+        avg = 0;
+        for (final Student i : students) {
+            avg += i.getGrade();
         }
-        gradeAverage /= students.lenght();
+        avg /= capacity;
     }
 
     /**
@@ -101,7 +105,7 @@ public class Lab
      * 
      * @param day the day lab is being hold
      */
-    public void setDay(String day) {
+    public void setDay(final String day) {
         this.day = day;
     }
 
@@ -119,7 +123,7 @@ public class Lab
      * 
      * @param capacity capacity of lab
      */
-    public void setCapacity(int capacity) {
+    public void setCapacity(final int capacity) {
         this.capacity = capacity;
     }
 }
