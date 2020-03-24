@@ -41,7 +41,6 @@ public class Run {
         labG6.enrollStudent(std4);
         System.out.println("day: " + labG6.getDay());
         System.out.println("capacity: " + labG6.getCapacity());
-        System.out.println("average: " + labG6.getAvg());
         // printing all details of students and average of lab
         labG6.print();
     }
