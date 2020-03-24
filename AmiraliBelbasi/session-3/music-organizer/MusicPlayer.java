@@ -28,12 +28,10 @@ public class MusicPlayer {
     }
 
     public void stop() {
-        if (isPlaying)
-        {
+        if (isPlaying) {
             System.out.println("player is stopped!");
             isPlaying = false;
-        }
-        else {
+        } else {
             System.out.println("no song is playing");
         }
     }

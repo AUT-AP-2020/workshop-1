@@ -1,13 +1,14 @@
 /**
  * testing MusicCollection, Music, MusicPlayer Classes
  */
-public class Main
-{
+public class Main {
     /**
      * main method
+     * 
      * @param args
      */
     public static void main(String[] args) {
+        // testing different methods
         MusicCollection pop = new MusicCollection();
         MusicCollection jazz = new MusicCollection();
         MusicCollection rock = new MusicCollection();
@@ -30,5 +31,21 @@ public class Main
         pop.stopPlaying();
         pop.startPlaying(0);
         pop.stopPlaying();
+        /*
+        adding favorite songs feature
+        no need to add methods to MusicCollection class
+        making another MusicCollection will do just fine
+        */
+        MusicCollection favoriteSongs = new MusicCollection();
+        // adding to favorite songs
+        favoriteSongs.addFile(pop.getFiles().get(1));
+        favoriteSongs.addFile(country.getFiles().get(1));
+        favoriteSongs.addFile(jazz.getFiles().get(1));
+        favoriteSongs.addFile(rock.getFiles().get(1));
+        // removing from favorite songs
+        favoriteSongs.removeFile(4);
+        favoriteSongs.removeFile(3);
+        // listing favorite songs
+        favoriteSongs.listAllFiles();
     }
 }
