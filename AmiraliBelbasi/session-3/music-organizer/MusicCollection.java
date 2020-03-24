@@ -3,14 +3,14 @@ import java.util.ArrayList;
 /**
  * A class to hold details of audio files.
  * 
- * @author David J. Barnes and Michael Kölling
+ * @author David J. Barnes and Michael Kolling
  * @version 2011.07.31
  */
 public class MusicCollection
 {
-    // An ArrayList for storing the file names of music files.
-    private ArrayList<String> files;
-    // A player for the music files.
+    // An ArrayList for storing the musics.
+    private ArrayList<Music> files;
+    // A player for the music.
     private MusicPlayer player;
         
     /**
@@ -18,16 +18,17 @@ public class MusicCollection
      */
     public MusicCollection()
     {
-        
+        files = new ArrayList<Music>();
+        player = new MusicPlayer();
     }
     
     /**
      * Add a file to the collection.
      * @param filename The file to be added.
      */
-    public void addFile(String filename)
+    public void addFile(Music filename)
     {
-        
+        files.add(filename);
     }
     
     /**
@@ -36,7 +37,7 @@ public class MusicCollection
      */
     public int getNumberOfFiles()
     {
-        
+        return files.size();
     }
     
     /**
@@ -45,7 +46,11 @@ public class MusicCollection
      */
     public void listFile(int index)
     {
-        
+        if (validIndex(index))
+        {        
+            files.get(index).getMusicAddress();
+        }
+        else System.out.println("invalid index");
     }
     
     /**
@@ -53,7 +58,10 @@ public class MusicCollection
      */
     public void listAllFiles()
     {
-        
+        for (Music i: files)
+        {
+            i.getMusicAddress();
+        }
     }
     
     /**
@@ -62,7 +70,11 @@ public class MusicCollection
      */
     public void removeFile(int index)
     {
-        
+        if (validIndex(index))
+        {            
+            files.remove(index);
+        }
+        else System.out.println("invalid index");
     }
 
     /**
@@ -72,7 +84,11 @@ public class MusicCollection
      */
     public void startPlaying(int index)
     {
-        
+        if (validIndex(index))
+        {
+            player.startPlaying(files.get(index));
+        }
+        else System.out.println("invalid index");
     }
 
     /**
@@ -80,9 +96,8 @@ public class MusicCollection
      */
     public void stopPlaying()
     {
-        
+        player.stop();
     }
-
 
     /**
      * Determine whether the given index is valid for the collection.
@@ -92,8 +107,7 @@ public class MusicCollection
      */
     private boolean validIndex(int index)
     {
-        // The return value.
-        // Set according to whether the index is valid or not.
-       
+        if (index >= 0 && index < files.size()) return true;
+        return false;
     }
 }
