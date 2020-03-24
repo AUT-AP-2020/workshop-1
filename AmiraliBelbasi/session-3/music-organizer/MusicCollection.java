@@ -102,10 +102,26 @@ public class MusicCollection {
             return true;
         return false;
     }
+
     /**
      * @return the files
      */
     public ArrayList<Music> getFiles() {
         return files;
+    }
+
+    /**
+     * searching a collection for songs with given string
+     */
+    void searchSong(String str) {
+        int counter = 0;
+        for (Music i : files) {
+            if (i.getMusicAddress().contains(str) || i.getMusicSinger().contains(str)) {
+                System.out.println(i.getMusicAddress() + " by " + i.getMusicSinger());
+                counter++;
+            }
+        }
+        if (counter == 0)
+            System.out.println("no such song matched!");
     }
 }

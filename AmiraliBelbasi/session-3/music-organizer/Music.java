@@ -9,7 +9,24 @@ public class Music {
         this.musicReleaseYear = musicReleaseYear;
     }
 
+    /**
+     * @return the musicAddress
+     */
     public String getMusicAddress() {
         return musicAddress;
+    }
+
+    /**
+     * @return the musicReleaseYear
+     */
+    public String getMusicReleaseYear() {
+        return musicReleaseYear;
+    }
+
+    /**
+     * @return the musicSinger
+     */
+    public String getMusicSinger() {
+        return musicSinger;
     }
 }
