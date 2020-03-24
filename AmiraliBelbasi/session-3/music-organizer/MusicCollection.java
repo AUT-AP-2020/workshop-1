@@ -47,8 +47,8 @@ public class MusicCollection
     public void listFile(int index)
     {
         if (validIndex(index))
-        {        
-            files.get(index).getMusicAddress();
+        {    
+            System.out.println(files.get(index).getMusicAddress());
         }
         else System.out.println("invalid index");
     }
@@ -60,7 +60,7 @@ public class MusicCollection
     {
         for (Music i: files)
         {
-            i.getMusicAddress();
+            System.out.println(i.getMusicAddress());
         }
     }
     
